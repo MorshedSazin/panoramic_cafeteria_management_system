@@ -68,12 +68,15 @@ private:
     vector<MenuItem> menuItems = {
         {"Beef Chowmein",      150.00 },
         {"Chicken Chowmein",   110.00 },
-        {"Khichuri",            70.00 },
+        
+	    {"Khichuri",            70.00 },
         {"Pasta",               60.00 },
+
         {"Chicken Wings",       40.00 },
-        {"Cup Cake",            25.00 },
+	    {"Cup Cake",            25.00 },
         {"Mixed Vegetable",     25.00 },
-        {"Eggs",                20.00 },
+        
+	    {"Eggs",                20.00 },
         {"Vagfry",              20.00 },
         {"Parata",              10.00 },
         {"Coffee",              30.00 },
@@ -163,10 +166,12 @@ private:
         {"Beef Bhuna",      130.00},
         {"Beef Biryani",    160.00},
         {"Chicken Biryani", 120.00},
-        {"Khichuri",         90.00},
+        
+	    {"Khichuri",         90.00},
         {"Chicken Fry",      90.00},
         {"Fish Curry",       80.00},
-        {"Fish Curry",       25.00},
+        
+	    {"Fish Curry",       25.00},
         {"Dal",              20.00}
     };
 
