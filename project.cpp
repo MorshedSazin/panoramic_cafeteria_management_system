@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <vector>
 #include <fstream>
+#include <cstdlib>
 using namespace std;
 
 // color code and name...
@@ -16,7 +17,7 @@ using namespace std;
 #define WHITE   "\033[37m"
 
 //System time and its functions.
-int currentTime() {
+int currentTime() { 
     cout << endl << setw(12) << GREEN << "PANORAMIC_CAFETERIA_MANAGEMENT_SYSTEM" << RESET << endl; 
     time_t t = time(NULL);
     struct tm date = *localtime(&t);
@@ -27,7 +28,6 @@ int currentTime() {
     cout << endl;
     // return date.tm_hour;
     return 9;
-    
 }
 
 
@@ -40,7 +40,7 @@ void itemsBar(){
 
 //Quantity of the items.
 int Quantity(){
-    int quantity = 100;
+    int quantity = 10;
     return quantity;
 }
 
@@ -57,7 +57,7 @@ struct MenuItem {
 class Flage{
     protected:
     string flage(){
-        return "WELCOME TO PANORAMIC_CAFETERIA YOU. \nPLEASE MAKE SURE TO READ DOCOMENTATION BEFORE ENTERING VALUES.";
+        return "WELCOME YOU TO PANORAMIC_CAFETERIA. \nPLEASE MAKE SURE TO READ DOCOMENTATION BEFORE ENTERING VALUES.";
     }
 };
 
@@ -87,7 +87,7 @@ private:
 public:
     void items() {
         cout << RED << flage() <<RESET << endl;
-        cout << GREEN << "It's BRESKFAST time.." << RESET << endl <<endl ;
+        cout << GREEN << "It's BRESKFAST time.." << RESET << endl;
         cout << "Note: To select food for order press number 1 to " << size(menuItems) <<" according to the list:" << endl << endl;
         cout << endl;
         itemsBar();
@@ -131,7 +131,7 @@ void checkBreakFast(BreakFast prObj) {
                 cout << setw(5) <<"" << "Enter the quantity: ";
                 cin >> quantity;
                 order-=1;
-                if(quantity > prObj.getQuantity(order )){
+                if(quantity > prObj.getQuantity(order)){
                   cout << setw(5) <<"" << "Apologize sir, we're out of " << prObj.menuItems[order].name <<"." <<endl; 
                 }else{
                     cout << setw(5) <<"" << "You have ordered: " << prObj.menuItems[order ].name  <<", and the quantity is: " << quantity << "." << endl <<endl;
@@ -149,7 +149,7 @@ void checkBreakFast(BreakFast prObj) {
             cin >> order;
         }
     }
-
+    system("clear");
     prObj.items();
     cout << endl;
     cout << GREEN << setw(5) << setfill(' ') <<""  << "Total check to pay: " << fixed << setprecision(2) << sum << " tk..."  << endl;
@@ -460,13 +460,10 @@ int main() {
 
     int time = currentTime();
 
-    if(time < 8 && time > 22) { 
-        cout <<setw(33) <<".....SORRY! We're closed, we're open (08:00am to 10:00pm)....." << endl<<endl;
-    } else if(time >= 8 && time < 11){
+    if (time >= 8 && time < 11){
         BreakFast breakFast;
         breakFast.items();
         checkBreakFast(breakFast);
-
     }else if(time >= 11 && time < 16) {
         Lunch lunch;
         lunch.items();
@@ -475,10 +472,12 @@ int main() {
         Snacks snacks; 
         snacks.items();
         checkSnacks(snacks);
-    }else {
+    }else if(time >= 20 && time < 22) {
         Dinner dinner;
         dinner.items();
         checkDinner(dinner);
+    } else {
+        cout << setw(33) <<".....SORRY! We're closed, we're open (08:00am to 10:00pm)....." << endl <<endl;
     }
     return 0;
 }
