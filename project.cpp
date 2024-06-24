@@ -18,23 +18,23 @@ using namespace std;
 
 //System time and its functions.
 int currentTime() { 
-    cout << endl << setw(12) << GREEN << "PANORAMIC_CAFETERIA_MANAGEMENT_SYSTEM" << RESET << endl; 
+    cout << endl << endl << setw(25) << GREEN << "PANORAMIC_CAFETERIA_MANAGEMENT_SYSTEM" << RESET << endl << endl; 
     time_t t = time(NULL);
     struct tm date = *localtime(&t);
-    cout << setw(22) << BLUE << "---------------------" << RESET <<endl;
-    cout << setw(22) << BLUE << "| time: " << setw(2) << setfill('0') << date.tm_hour << "h-" << setw(2) << setfill('0') << date.tm_min << "m-" << setw(2) << setfill('0')  << date.tm_sec <<"s |" <<setfill(' ')<< RESET << endl;
-    cout << setw(22) << BLUE << "| date: " << setw(2) << setfill('0') << date.tm_mday << "-" << setw(2) << setfill('0') << date.tm_mon+1 << "-" << setw(2) << setfill('0') << date.tm_year+1900 <<"  |" <<setfill(' ') << RESET << endl;
-    cout << setw(22) << BLUE << "---------------------" << RESET <<endl;
+    cout << setw(33) << RED << "---------------------" << RESET <<endl;
+    cout << setw(33) << RED << "| time: " << setw(2) << setfill('0') << date.tm_hour << "h-" << setw(2) << setfill('0') << date.tm_min << "m-" << setw(2) << setfill('0')  << date.tm_sec <<"s |" <<setfill(' ')<< RESET << endl;
+    cout << setw(33) << RED << "| date: " << setw(2) << setfill('0') << date.tm_mday << "-" << setw(2) << setfill('0') << date.tm_mon+1 << "-" << setw(2) << setfill('0') << date.tm_year+1900 <<"  |" <<setfill(' ') << RESET << endl;
+    cout << setw(33) << RED << "---------------------" << RESET <<endl;
     cout << endl;
     // return date.tm_hour;
-    return 9;
+    return 19;
 }
 
 
 //Items representation.
 void itemsBar(){
-    cout << setw(19) <<setfill(' ') << "Items"  <<setw(19) <<"Prices"  <<setw(21) << "Quantity"<<endl;
-    cout << setw(20)  <<"---------" <<setw(20) <<"---------" <<setw(20) <<"---------" <<endl;
+    cout << setw(37) <<setfill(' ') << "Items"  <<setw(21) <<"Prices"  <<setw(20) << "Quantity"<<endl;
+    cout << setw(39)  <<"---------" <<setw(20) <<"---------" <<setw(20) <<"----------" <<endl;
 }
 
 
@@ -56,8 +56,9 @@ struct MenuItem {
 // A parent class with a function call flage(), used for display worning.
 class Flage{
     protected:
-    string flage(){
-        return "WELCOME YOU TO PANORAMIC_CAFETERIA. \nPLEASE MAKE SURE TO READ DOCOMENTATION BEFORE ENTERING VALUES.";
+    void flage(){
+        cout << setw(10) << GREEN << "WELCOME YOU TO PANORAMIC_CAFETERIA." << RESET << endl;
+        cout << setw(10) << GREEN << "PLEASE MAKE SURE TO READ DOCOMENTATION BEFORE ENTERING VALUES." << RESET << endl;
     }
 };
 
@@ -85,17 +86,22 @@ private:
 
     friend void checkBreakFast(BreakFast);
 public:
+
+    void show(){
+        currentTime();
+        flage();
+        cout << setw(10) << GREEN << "It's BRESKFAST time.." << RESET << endl;
+    }
+
     void items() {
-        cout << RED << flage() <<RESET << endl;
-        cout << GREEN << "It's BRESKFAST time.." << RESET << endl;
-        cout << "Note: To select food for order press number 1 to " << size(menuItems) <<" according to the list:" << endl << endl;
+        cout << endl << endl << setw(10) << WHITE << "Note: To select food for order press number 1 to " << size(menuItems) <<" according to the list:" << endl << endl;
         cout << endl;
         itemsBar();
         cout << endl;
 
         for (int i = 0; i < menuItems.size(); ++i) {
-            cout << left << setfill('.') << setw(2) 
-            << i + 1 << ". " << setw(25) << menuItems[i].name << ": " << setw(10) << fixed << setprecision(2) << menuItems[i].price << " tk.../" <<right <<setw(8) <<"0"<< menuItems[i].quantity << endl;
+            cout <<right <<setfill(' ') << setw(10) 
+            << i + 1 << ". " << setw(26) << menuItems[i].name << ": " << setw(15) << fixed << setprecision(2) << menuItems[i].price << " tk.../" <<right <<setw(12) <<"0"<< menuItems[i].quantity << endl;
         }
         cout << endl;
     }
@@ -152,13 +158,13 @@ void checkBreakFast(BreakFast prObj) {
     system("clear");
     prObj.items();
     cout << endl;
-    cout << GREEN << setw(5) << setfill(' ') <<""  << "Total check to pay: " << fixed << setprecision(2) << sum << " tk..."  << endl;
-    cout << setw(5) <<"" << "--------------------------------" << RESET << endl << endl << endl << endl;
+    cout << GREEN << setw(30) << setfill(' ') <<""  << "Total check to pay: " << fixed << setprecision(2) << sum << " tk..."  << endl;
+    cout << setw(30) <<"" << "--------------------------------" << RESET << endl << endl << endl << endl;
 }
 
 
 
-//Adding Lunch item.
+// //Adding Lunch item.
 class Lunch : public Flage{
 private:
     vector<MenuItem> menuItems = {
@@ -177,20 +183,25 @@ private:
 
     friend void checkLunch(Lunch);
 public :
+    void show(){
+        currentTime();
+        flage();
+        cout << setw(10) << GREEN << "It's LUNCH time.." << RESET << endl;
+    }
+
     void items() {
-        cout << RED << flage() <<RESET << endl;
-        cout << GREEN << "It's Lunch time.." << RESET << endl;
-        cout << "Note: To select food for order press number 1 to " << size(menuItems) <<" according to the list:" << endl << endl;
+        cout << endl << endl << setw(10) << WHITE << "Note: To select food for order press number 1 to " << size(menuItems) <<" according to the list:" << endl << endl;
         cout << endl;
         itemsBar();
         cout << endl;
 
         for (int i = 0; i < menuItems.size(); ++i) {
-            cout << left << setfill('.') << setw(2) 
-            << i + 1 << ". " << setw(25) << menuItems[i].name << ": " << setw(10) << fixed << setprecision(2) << menuItems[i].price << " tk.../" <<right <<setw(8) <<"0"<< menuItems[i].quantity << endl;
+            cout <<right <<setfill(' ') << setw(10) 
+            << i + 1 << ". " << setw(26) << menuItems[i].name << ": " << setw(15) << fixed << setprecision(2) << menuItems[i].price << " tk.../" <<right <<setw(12) <<"0"<< menuItems[i].quantity << endl;
         }
         cout << endl;
     }
+    
     inline float getPrice(int &index) {
         return menuItems[index].price;
     }
@@ -204,7 +215,7 @@ public :
     }
 };
 
-// Calculating orders and price for Lunch.
+// // Calculating orders and price for Lunch.
 void checkLunch(Lunch prObj){
    
     cout << endl << setw(5) <<setfill(' ') <<""  <<"Enter 0 to confirm the order."<<endl
@@ -240,16 +251,16 @@ void checkLunch(Lunch prObj){
             cin >> order;
         }
     }
-
+    system("clear");
     prObj.items();
     cout << endl;
-    cout << setw(5) <<"" << GREEN << "Total check to pay: " << fixed << setprecision(2) << sum << " tk..."  << endl;
-    cout << setw(5) <<"" << "--------------------------------" << RESET << endl << endl << endl << endl;
+    cout << GREEN << setw(30) << setfill(' ') <<""  << "Total check to pay: " << fixed << setprecision(2) << sum << " tk..."  << endl;
+    cout << setw(30) <<"" << "--------------------------------" << RESET << endl << endl << endl << endl;
 }
 
 
 
-//Adding Snacks item.
+// //Adding Snacks item.
 class Snacks : public Flage{
 private:
     vector<MenuItem> menuItems = {
@@ -281,17 +292,21 @@ private:
 
     friend void checkSnacks(Snacks);
 public :
+    void show(){
+        currentTime();
+        flage();
+        cout << setw(10) << GREEN << "It's BRESKFAST time.." << RESET << endl;
+    }
+
     void items() {
-        cout << RED << flage() <<RESET << endl;
-        cout << GREEN << "It's Snacks time.." << RESET << endl;
-        cout << "Note: To select food for order press number 1 to " << size(menuItems) <<" according to the list:" << endl << endl;
+        cout << endl << endl << setw(10) << WHITE << "Note: To select food for order press number 1 to " << size(menuItems) <<" according to the list:" << endl << endl;
         cout << endl;
         itemsBar();
         cout << endl;
 
         for (int i = 0; i < menuItems.size(); ++i) {
-            cout << left << setfill('.') << setw(2) 
-            << i + 1 << ". " << setw(25) << menuItems[i].name << ": " << setw(10) << fixed << setprecision(0) << menuItems[i].price << " tk.../" << right <<setw(8) <<"0"<< menuItems[i].quantity << endl;
+            cout <<right <<setfill(' ') << setw(10) 
+            << i + 1 << ". " << setw(26) << menuItems[i].name << ": " << setw(15) << fixed << setprecision(2) << menuItems[i].price << " tk.../" <<right <<setw(12) <<"0"<< menuItems[i].quantity << endl;
         }
         cout << endl;
     }
@@ -309,7 +324,7 @@ public :
     }
 };
 
-// Calculating orders and price for Snacks.
+// // Calculating orders and price for Snacks.
 void checkSnacks(Snacks prObj){
 
     cout << endl << setw(5) << setfill(' ') <<"" <<"Enter 0 to confirm the order."<<endl
@@ -345,17 +360,16 @@ void checkSnacks(Snacks prObj){
             cin >> order;
         }
     }
-
+    system("clear");
     prObj.items();
     cout << endl;
-    cout << setw(5) <<"" << GREEN << "Total check to pay: " << fixed << setprecision(2) << sum << " tk..."  << endl;
-    cout << setw(5) <<"" << "--------------------------------" << RESET << endl << endl << endl << endl;
-    
+    cout << GREEN << setw(30) << setfill(' ') <<""  << "Total check to pay: " << fixed << setprecision(2) << sum << " tk..."  << endl;
+    cout << setw(30) <<"" << "--------------------------------" << RESET << endl << endl << endl << endl;
 }
 
 
 
-//Adding Snacks item.
+// //Adding Snacks item.
 class Dinner : public Flage{
 private:
     vector<MenuItem> menuItems = {
@@ -384,17 +398,21 @@ private:
    
     friend void checkDinner(Dinner);
 public :
+    void show(){
+        currentTime();
+        flage();
+        cout << setw(10) << GREEN << "It's DINNER time.." << RESET << endl;
+    }
+
     void items() {
-        cout << RED << flage() <<RESET << endl;
-        cout << GREEN << "It's Dinner time.." <<RESET << endl;
-        cout << "Note: To select food for order press number 1 to " << size(menuItems) <<" according to the list:" << endl << endl;
+        cout << endl << endl << setw(10) << WHITE << "Note: To select food for order press number 1 to " << size(menuItems) <<" according to the list:" << endl << endl;
         cout << endl;
         itemsBar();
         cout << endl;
 
         for (int i = 0; i < menuItems.size(); ++i) {
-            cout << left << setfill('.') << setw(2) 
-            << i + 1 << ". " << setw(25) << menuItems[i].name << ": " << setw(10) << fixed << setprecision(2) << menuItems[i].price << " tk.../" <<right <<setw(8) <<"0"<< menuItems[i].quantity << endl;
+            cout <<right <<setfill(' ') << setw(10) 
+            << i + 1 << ". " << setw(26) << menuItems[i].name << ": " << setw(15) << fixed << setprecision(2) << menuItems[i].price << " tk.../" <<right <<setw(12) <<"0"<< menuItems[i].quantity << endl;
         }
         cout << endl;
     }
@@ -411,7 +429,7 @@ public :
     }
 };
 
-// Calculating orders and price for Dinner.
+// // Calculating orders and price for Dinner.
 void checkDinner(Dinner prObj){
 
     cout << endl << setw(5) <<setfill(' ') <<"" <<"Enter 0 to confirm the order."<<endl
@@ -447,35 +465,74 @@ void checkDinner(Dinner prObj){
             cin >> order;
         }
     }
-
+    system("clear");
     prObj.items();
     cout << endl;
-    cout << setw(5) <<"" << GREEN << "Total check to pay: " << fixed << setprecision(2) << sum << " tk..."  << endl;
-    cout << setw(5) <<"" << "--------------------------------" << RESET << endl << endl << endl << endl;
-    
+    cout << GREEN << setw(30) << setfill(' ') <<""  << "Total check to pay: " << fixed << setprecision(2) << sum << " tk..."  << endl;
+    cout << setw(30) <<"" << "--------------------------------" << RESET << endl << endl << endl << endl;
 }
 
 
 int main() {
 
-    int time = currentTime();
+    int check = 0,time = currentTime();
 
     if (time >= 8 && time < 11){
-        BreakFast breakFast;
-        breakFast.items();
-        checkBreakFast(breakFast);
-    }else if(time >= 11 && time < 16) {
-        Lunch lunch;
-        lunch.items();
-        checkLunch(lunch);
+        
+        cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+        cin >> check;
+        while(check != 0){
+            system("clear");
+            BreakFast breakFast;
+            breakFast.show();
+            breakFast.items();
+            checkBreakFast(breakFast);
+            cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+            cin >> check;
+        }
+
+     } else if(time >= 11 && time < 16) {
+        
+        cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+        cin >> check;
+        while(check != 0){
+            system("clear");
+            Lunch lunch;
+            lunch.show();
+            lunch.items();
+            checkLunch(lunch);
+            cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+            cin >> check;
+        }
+
     }else if (time >= 16 && time < 20) {
-        Snacks snacks; 
-        snacks.items();
-        checkSnacks(snacks);
+
+        cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+        cin >> check;
+        while(check != 0){
+            system("clear");
+            Snacks snacks; 
+            snacks.show();
+            snacks.items();
+            checkSnacks(snacks);
+            cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+            cin >> check;
+        }
+
     }else if(time >= 20 && time < 22) {
-        Dinner dinner;
-        dinner.items();
-        checkDinner(dinner);
+    
+        cout << setw(10) << WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+        cin >> check;
+        while(check != 0){
+            system("clear");
+            Dinner dinner;
+            dinner.show();
+            dinner.items();
+            checkDinner(dinner);
+            cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+            cin >> check;
+        }
+
     } else {
         cout << setw(33) <<".....SORRY! We're closed, we're open (08:00am to 10:00pm)....." << endl <<endl;
     }
