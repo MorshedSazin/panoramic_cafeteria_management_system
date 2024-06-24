@@ -26,8 +26,7 @@ int currentTime() {
     cout << setw(33) << RED << "| date: " << setw(2) << setfill('0') << date.tm_mday << "-" << setw(2) << setfill('0') << date.tm_mon+1 << "-" << setw(2) << setfill('0') << date.tm_year+1900 <<"  |" <<setfill(' ') << RESET << endl;
     cout << setw(33) << RED << "---------------------" << RESET <<endl;
     cout << endl;
-    // return date.tm_hour;
-    return 19;
+    return date.tm_hour;
 }
 
 
@@ -130,14 +129,14 @@ void checkBreakFast(BreakFast prObj) {
     cin >> order;
 
     if (order == 0) {
-        cout << setw(10) <<"" << "You have not ordered yet..." << endl;
+         cout << setw(10) << "You have not ordered yet..." << endl;
     } else {
         while (order != 0) {
             if (order >= 1 && order <= prObj.menuItems.size()) {
                 cout << setw(5) <<"" << "Enter the quantity: ";
                 cin >> quantity;
                 order-=1;
-                if(quantity > prObj.getQuantity(order)){
+                if(quantity > prObj.getQuantity(order )){
                   cout << setw(5) <<"" << "Apologize sir, we're out of " << prObj.menuItems[order].name <<"." <<endl; 
                 }else{
                     cout << setw(5) <<"" << "You have ordered: " << prObj.menuItems[order ].name  <<", and the quantity is: " << quantity << "." << endl <<endl;
@@ -149,9 +148,10 @@ void checkBreakFast(BreakFast prObj) {
                 }
         
             } else {
-                cout << setw(5) <<"" << endl <<  "Invalid item number." << endl << "Please enter a valid item number or 0 to confirm the order." << endl <<endl;
+                cout << endl << setw(10) << RED <<  "Invalid item number." << endl 
+                << setw(10) <<RED << "Please enter a valid item number or 0 to confirm." << RESET << endl <<endl;
             }
-            cout << setw(5) <<"" << "Enter your item number to continue purchase or 0 to confirm your selected order: ";
+            cout << setw(10) << WHITE << "Enter your item number to continue purchase or 0 to confirm your selected order: " << RESET;
             cin >> order;
         }
     }
@@ -161,8 +161,6 @@ void checkBreakFast(BreakFast prObj) {
     cout << GREEN << setw(30) << setfill(' ') <<""  << "Total check to pay: " << fixed << setprecision(2) << sum << " tk..."  << endl;
     cout << setw(30) <<"" << "--------------------------------" << RESET << endl << endl << endl << endl;
 }
-
-
 
 // //Adding Lunch item.
 class Lunch : public Flage{
@@ -226,7 +224,7 @@ void checkLunch(Lunch prObj){
     cin >> order;
 
     if (order == 0) {
-        cout << setw(10) <<"" << "You have not ordered yet..." << endl;
+        cout << setw(10) << "You have not ordered yet..." << endl;
     } else {
         while (order != 0) {
             if (order >= 1 && order <= prObj.menuItems.size()) {
@@ -245,9 +243,10 @@ void checkLunch(Lunch prObj){
                 }
         
             } else {
-                cout << setw(5) <<"" << endl <<  "Invalid item number." << endl << "Please enter a valid item number or 0 to confirm the order." << endl <<endl;
+                cout << endl << setw(10) << RED <<  "Invalid item number." << endl 
+                << setw(10) <<RED << "Please enter a valid item number or 0 to confirm." << RESET << endl <<endl;
             }
-            cout << setw(5) <<"" << "Enter your item number to continue purchase or 0 to confirm your selected order: ";
+            cout << setw(10) << WHITE << "Enter your item number to continue purchase or 0 to confirm your selected order: " << RESET;
             cin >> order;
         }
     }
@@ -295,7 +294,7 @@ public :
     void show(){
         currentTime();
         flage();
-        cout << setw(10) << GREEN << "It's BRESKFAST time.." << RESET << endl;
+        cout << setw(10) << GREEN << "It's SNACKS time.." << RESET << endl;
     }
 
     void items() {
@@ -327,15 +326,15 @@ public :
 // // Calculating orders and price for Snacks.
 void checkSnacks(Snacks prObj){
 
-    cout << endl << setw(5) << setfill(' ') <<"" <<"Enter 0 to confirm the order."<<endl
-    << setw(5) <<"" <<"Enter your items number 1 to " << prObj.menuItems.size() <<" like (1 = Grill Chicken Full): ";
+    cout << endl << setw(5) << setfill(' ') <<"" <<"Enter item number or 0 to confirm: ";
+    //<< setw(5) <<"" <<"Enter your items number 1 to " << prObj.menuItems.size() <<" like (1 = Grill Chicken Full): ";
     
     float sum = 0;
     int order, quantity; 
     cin >> order;
 
     if (order == 0) {
-        cout << setw(10) <<"" << "You have not ordered yet..." << endl;
+        cout << setw(10) << "You have not ordered yet..." << endl;
     } else {
         while (order != 0) {
             if (order >= 1 && order <= prObj.menuItems.size()) {
@@ -354,9 +353,10 @@ void checkSnacks(Snacks prObj){
                 }
         
             } else {
-                cout << setw(5) <<"" << endl <<  "Invalid item number." << endl << "Please enter a valid item number or 0 to confirm the order." << endl <<endl;
+                cout << endl << setw(10) << RED <<  "Invalid item number." << endl 
+                << setw(10) <<RED << "Please enter a valid item number or 0 to confirm." << RESET << endl <<endl;
             }
-            cout << setw(5) <<"" << "Enter your item number to continue purchase or 0 to confirm your selected order: ";
+            cout << setw(10) << WHITE << "Enter your item number to continue purchase or 0 to confirm your selected order: " << RESET;
             cin >> order;
         }
     }
@@ -440,7 +440,7 @@ void checkDinner(Dinner prObj){
     cin >> order;
 
     if (order == 0) {
-        cout << setw(10) <<"" << "You have not ordered yet..." << endl;
+        cout << setw(10) << "You have not ordered yet..." << endl;
     } else {
         while (order != 0) {
             if (order >= 1 && order <= prObj.menuItems.size()) {
@@ -459,9 +459,10 @@ void checkDinner(Dinner prObj){
                 }
         
             } else {
-                cout << setw(5) <<"" << endl <<  "Invalid item number." << endl << "Please enter a valid item number or 0 to confirm the order." << endl <<endl;
+                cout << endl << setw(10) << RED <<  "Invalid item number." << endl 
+                << setw(10) <<RED << "Please enter a valid item number or 0 to confirm." << RESET << endl <<endl;
             }
-            cout << setw(5) <<"" << "Enter your item number to continue purchase or 0 to confirm your selected order: ";
+            cout << setw(10) << WHITE << "Enter your item number to continue purchase or 0 to confirm your selected order: " << RESET;
             cin >> order;
         }
     }
@@ -472,6 +473,9 @@ void checkDinner(Dinner prObj){
     cout << setw(30) <<"" << "--------------------------------" << RESET << endl << endl << endl << endl;
 }
 
+void permission(){
+    cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+}
 
 int main() {
 
@@ -479,7 +483,7 @@ int main() {
 
     if (time >= 8 && time < 11){
         
-        cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+        permission();
         cin >> check;
         while(check != 0){
             system("clear");
@@ -487,13 +491,13 @@ int main() {
             breakFast.show();
             breakFast.items();
             checkBreakFast(breakFast);
-            cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+            permission();
             cin >> check;
         }
 
-     } else if(time >= 11 && time < 16) {
+     } else if (time >= 11 && time < 16) {
         
-        cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+        permission();
         cin >> check;
         while(check != 0){
             system("clear");
@@ -501,13 +505,13 @@ int main() {
             lunch.show();
             lunch.items();
             checkLunch(lunch);
-            cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+            permission();
             cin >> check;
         }
 
-    }else if (time >= 16 && time < 20) {
+    } else if (time >= 16 && time < 20) {
 
-        cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+        permission();
         cin >> check;
         while(check != 0){
             system("clear");
@@ -515,13 +519,13 @@ int main() {
             snacks.show();
             snacks.items();
             checkSnacks(snacks);
-            cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+            permission();
             cin >> check;
         }
 
-    }else if(time >= 20 && time < 22) {
+    } else if (time >= 20 && time < 22) {
     
-        cout << setw(10) << WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+        permission();
         cin >> check;
         while(check != 0){
             system("clear");
@@ -529,7 +533,7 @@ int main() {
             dinner.show();
             dinner.items();
             checkDinner(dinner);
-            cout << setw(10) <<WHITE << "press 1 to continue order or 0 to ignore: " << RESET;
+            permission();
             cin >> check;
         }
 
