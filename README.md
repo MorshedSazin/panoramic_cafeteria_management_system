@@ -26,14 +26,14 @@ To get started with the Cafe Control Application, follow these steps:
    git clone https://github.com/MorshedSazin/panoramic_cafeteria_management_system.git 
 
 <!-- ![profile](./me.png) -->
-<img src="./screenShort/picture_1.pngpng" width="400" title="profile image"/>
-<img src="./screenShort/picture_2.pngpng" width="400" title="profile image"/>
-<img src="./screenShort/picture_3.pngpng" width="400" title="profile image"/>
-<img src="./screenShort/picture_4.pngpng" width="400" title="profile image"/>
-<img src="./screenShort/picture_5.pngpng" width="400" title="profile image"/>
-<img src="./screenShort/picture_6.pngpng" width="400" title="profile image"/>
-<img src="./screenShort/picture_7.pngpng" width="400" title="profile image"/>
-<img src="./screenShort/picture_8.pngpng" width="400" title="profile image"/>
+<img src="./screenShort/picture_1.png" width="400" title="profile image"/>
+<img src="./screenShort/picture_2.png" width="400" title="profile image"/>
+<img src="./screenShort/picture_3.png" width="400" title="profile image"/>
+<img src="./screenShort/picture_4.png" width="400" title="profile image"/>
+<img src="./screenShort/picture_5.png" width="400" title="profile image"/>
+<img src="./screenShort/picture_6.png" width="400" title="profile image"/>
+<img src="./screenShort/picture_7.png" width="400" title="profile image"/>
+<img src="./screenShort/picture_8.png" width="400" title="profile image"/>
 
 
 | media        | address                  |
