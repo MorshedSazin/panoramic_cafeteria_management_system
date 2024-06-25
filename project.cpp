@@ -28,7 +28,8 @@ int currentTime() {
     cout << setw(33) << RED << "| date: " << setw(2) << setfill('0') << date.tm_mday << "-" << setw(2) << setfill('0') << date.tm_mon+1 << "-" << setw(2) << setfill('0') << date.tm_year+1900 <<"  |" <<setfill(' ') << RESET << endl;
     cout << setw(33) << RED << "---------------------" << RESET <<endl;
     cout << endl;
-    return date.tm_hour;
+    // return date.tm_hour;
+    return 9;
 }
 
 
@@ -160,6 +161,7 @@ void checkBreakFast(BreakFast prObj) {
             cout << setw(10) << WHITE << "Enter your item number to continue purchase or 0 to confirm your selected order: " << RESET;
             cin >> order;
         }
+        system("clear");
     }
     cout << endl;
 
@@ -265,6 +267,7 @@ void checkLunch(Lunch prObj){
             cout << setw(10) << WHITE << "Enter your item number to continue purchase or 0 to confirm your selected order: " << RESET;
             cin >> order;
         }
+        system("clear");
     }
    cout << endl;
 
@@ -508,6 +511,7 @@ void checkDinner(Dinner prObj){
             cout << setw(10) << WHITE << "Enter your item number to continue purchase or 0 to confirm your selected order: " << RESET;
             cin >> order;
         }
+        system("clear");
     }
    cout << endl;
 
