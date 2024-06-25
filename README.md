@@ -33,7 +33,7 @@ To get started with the Cafe Control Application, follow these steps:
 <img src="./screenShort/picture_5.png" width="400" title="profile image"/>
 <img src="./screenShort/picture_6.png" width="400" title="profile image"/>
 <img src="./screenShort/picture_7.png" width="400" title="profile image"/>
-<img src="./screenShort/picture_8.png" width="400" title="profile image"/>
+
 
 
 | media        | address                  |
