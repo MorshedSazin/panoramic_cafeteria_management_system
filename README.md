@@ -1,11 +1,29 @@
 # panoramic_cafeteria_management_system
 
-<!--Beecrowd-Solutions-for-Bigeneer.(Dart)-->
+
 Morshed Sazin<br/>
+# Cafe Control Application
 
----
+Welcome to the Cafe Control Application repository! This project is a simple yet powerful application designed to assist cafe owners and managers in efficiently managing their daily operations.
 
-<p>Hello there. welcome to my repo. here is some of begginar solutions for beecowed.</p>
+## Features
+
+- **Order Management:** Easily take and manage customer orders.
+- **Inventory Tracking:** Keep track of stock levels and manage inventory efficiently.
+- **Billing and Payments:** Streamline the billing process and manage payments seamlessly.
+- **User-Friendly Interface:** Designed with a straightforward interface for ease of use.
+
+## Purpose
+
+The purpose of this application is to provide a foundational tool for cafe owners or managers to streamline their daily operations. Whether you're handling customer orders, managing inventory, or processing payments, this application aims to simplify these tasks and improve operational efficiency.
+
+## Getting Started
+
+To get started with the Cafe Control Application, follow these steps:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/MorshedSazin/panoramic_cafeteria_management_system.git 
 
 <!-- ![profile](./me.png) -->
 <img src="./screenShort/picture_1.pngpng" width="400" title="profile image"/>
@@ -17,11 +35,6 @@ Morshed Sazin<br/>
 <img src="./screenShort/picture_7.pngpng" width="400" title="profile image"/>
 <img src="./screenShort/picture_8.pngpng" width="400" title="profile image"/>
 
-```
-https://github.com/MorshedSazin/Dart-Solutions-for-Beecrowd.git
-cd /Dart-Solutions-for-Beecrowd/All problems
-nano (problem name)
-```
 
 | media        | address                  |
 | ------------ | ---------------------- |
